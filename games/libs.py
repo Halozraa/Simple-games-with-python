@@ -1,5 +1,5 @@
 import socket
-from time import sleep
+import time
 
 def welcome_message():
     nama_pc = socket.gethostname()
@@ -8,21 +8,6 @@ def welcome_message():
     print(f"** {nama_pc} **")
     print(dekor)
     
-
-def end_program ():
-    sleep(1)
-    print("3...")
-    sleep(1)
-    print("2...")
-    sleep(1)
-    print("1...")
-    sleep(1)
-    print("1...")
-    sleep(1)
-    print("0...")
-    print("Program telah berakhir")
-    exit()
-
 def print_red(text):
     red_color = "\033[91m"
     reset_color = "\033[0m"
@@ -37,6 +22,24 @@ def print_yellow(text):
     yellow_color = "\033[93m"
     reset_color = "\033[0m"
     print(yellow_color + text + reset_color)
+
+def countdown(seconds):
+    while seconds > 0:
+        if seconds <= 3:
+            print_red(f"{seconds}")
+        elif seconds <= 6:
+            print_yellow(f"{seconds}")
+        elif seconds >=7 :
+            print_green(f"{seconds}")
+        time.sleep(1) # menghitung mundur
+        seconds -= 1
+    print_red(f"Program berakhir")
+def end_program():
+    try:
+        seconds = 10 #10 detik
+        countdown(seconds)
+    except ValueError:
+        print("Isi second dengan angka bukan huruf")
 
 if __name__ == '__main__':
     welcome_message()

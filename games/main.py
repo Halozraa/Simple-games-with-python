@@ -18,6 +18,7 @@ def menu():
            
             elif pilihan == 4:
                 end_program()
+                break
             else:
                 print("Pilihan tidak valid. Silakan pilih 1, 2, atau 3.")
         except ValueError:
